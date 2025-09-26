@@ -86,6 +86,3 @@ OpenSTA
 ngspice
 magic
 OpenLANEsudo
-
-
-
