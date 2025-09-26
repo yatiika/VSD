@@ -1,0 +1,29 @@
+# Day 1 - Introduction to Verilog RTL Design and Synthesis
+   # Day 1.1 - Introduction to open source simulator iverilog 
+Simulator : Tool for checking design(RTL)
+Iverilog tool we will use in this course
+Design is actual Verilog code which has intended functionality to meet with required specifications
+testbench : apply stimulus (testvector) to design to check functionality 
+     # how does a simulator works:
+It looks for changes in input signal upon change in input the output is evaluated if no change in input no change in output.
+Note : It only looks for change in input
+ # Day 1.2 - Labs using iverilog and gtkwave
+ # Day 1.3 Introduction to Yosys and synthesis 
+Synthesizer : Tool for converting RTL to netlist 
+Yosys: synthesizer in this course
+netlist is representation of design in form of cells present in the .lib file
+
+Steps to verify the synthesis are that the output  of the synthesis should be same as RTL simulation. 
+The set of primary input and output will remain same between RTL design and synthesised netlist so same test bench can be used 
+
+RTL design : Behaviorial representation of required specification 
+Synthesis :
+RTL to gate level translation 
+design is converted into gates and conection is between gates 
+given out file is netlist 
+
+
+.lib is collection of logical modules 
+includes basic logic gates 
+different flavours of same gates 
+
