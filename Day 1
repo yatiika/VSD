@@ -8,6 +8,8 @@ testbench : apply stimulus (testvector) to design to check functionality
 It looks for changes in input signal upon change in input the output is evaluated if no change in input no change in output.
 Note : It only looks for change in input
  # Day 1.2 - Labs using iverilog and gtkwave
+Design and testbench file goes into iverilog and gives us vcd file (Value change dump format) which converts to gtkwave and gives us behavorial simulation.
+
  # Day 1.3 Introduction to Yosys and synthesis 
 Synthesizer : Tool for converting RTL to netlist 
 Yosys: synthesizer in this course
@@ -25,5 +27,29 @@ given out file is netlist
 
 .lib is collection of logical modules 
 includes basic logic gates 
-different flavours of same gates 
+different flavours of same gates :
+     2 input AND gate(Slow, Medium ,Fast)
+     3 input AND gate(Slow, Medium ,Fast)
+     4 input AND gate(Slow, Medium ,Fast)
+Why we need different flavours of same gate :
+Combinational delay in logic path determines the maximum speed of operation of digital logic circuit 
+Tclk > Tcq_A + Tcombi + Tsetup_B
+where Tcq_A:Proportional delay of Flip Flop A
+Tclk :Proportional delay for 1 clock cycle 
+Tsetup_B:Proportional delay for Setting up Flip Flop B
+Tcombi :Proportional delay inbetween Flip flop A and B
+So cells work fast to make Tcombi small
+Fclk max = 1/ Tclk min
 
+To ensure that we donot have hold issues at Flip flop B we need cells to work slow
+hence we need cells that work fast to meet the required performance and cells that work slow to meet Hold.
+This collection forms .lib.
+
+Load on digital logic circuit is called capacitance.
+Faster charging and discharging means lesser the cell delay. to cgarge and discharge we need transistors capable of sourcing more current 
+so wide transistors means low delay means more area and power.
+Norrow transistors means more delay means less area and power.
+
+We need to guide synthesizer to select flavour of cells that is optimum for implementation of logic circuit.
+More use of faster cells means bad circuit as less power and area.
+use of slow cells gives a sluggish circuit that may not meet up with the required performance.
