@@ -1,4 +1,35 @@
 Introduction to timing .lib 
 Day 2.1 : Introduction to .lib
+Name of the library is "sky130_fd_sc_hd_tt_025C_1v80", the information we get from decoding this name about this library 
+It is 130 nm library.
+tt= Typical (can be slow , fast or typical)
+025C: temperature 
+1v: Voltage
+
+P V T in library name stands for :
+P: Process (Variations due to fabrication)
+V : Voltage (Variations due to voltage)
+T: Temperature (Variations due to temperature , silicon is sensitive to temperature)
+These are essential for a design to work
+They determine how silicon will work fast or slow.
+The same circuit with different variations should work in all conditions.
+This library is using cmos technology.
+Delay model is table_lookup
+it specifies unit of :
+      time: nanosecond 
+      voltage:volt
+      power: Nanowolt
+      current: miliampere
+      resistance : kiloohm
+      capacitance : picofarad 
+.lib contains alot of cells that are defined as "sky130_fd_sc_hd_a2111o_1": which stands for 2 input AND into first input of 4 input OR. 
+It has 32 combinations and values of each pin are also defined like capacitance, clock,direction,internal power.
+we can open the verilog model for the same .
+The area increases with the increaseing name numbering , as no. of transistors incresases.
+ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
+
+
+
 Day 2.2 : Hierarchical vs Flat synthesis
+
 Day 2.3 : Various Flop coding Styles and Optimization 
