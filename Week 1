@@ -315,7 +315,71 @@ Synthesis-simulation mismatch due to blocking statements occurs when blocking (=
 
 
 
+
+
+
+
 #Day 5 
+Optimization synthesis
+Day 5.1 : If case constructs 
+if is used for priority logic . the format of if else code is :
+if <condition1>
+else if <condition2>
+else if <condition3>
+else
+
+danger with if "inferred latches" which means bad coding style(incomplete if).
+Inferred latches occur when a synthesis tool detects that a signal's value must be retained (i.e., stored) in certain conditions, but the RTL code doesn't explicitly describe a register or flip-flop to hold it.
+In combinational logic (always @(*)), if all possible input conditions are not covered, the synthesis tool assumes the output must hold its previous value, which requires a latch.
+latch should not occur until it is intended to occur.
+
+Counter : always@(posedge clk, posedge reset)
+begin
+    if(reset)
+          count <=3'b000;
+    else if (en)
+          count <= count +1;
+end 
+
+it is an incomplete if code. 
+if enable is not their,count should latch to the previous value.
+case statement [if ,case are used inside always block reg variable]
+img 1+2 
+Day 5.2 : Incomplete If case
+we apply the theory studied in the above lecture and verify this by studying the waveform.
+Day 5.3 : Incomplete overlapping case 
+we apply the theory studied in the above lecture and verify this by studying the waveform.
+Day 5.4 : For loop and For generate 
+looping constructs :
+1)for loop : always , for evaluating expressions. it is not for generating.
+Eg: 
+reg [7:0] data [0:3];
+reg [9:0] sum;
+
+always @(*) begin
+    sum = 0;
+    for (int i = 0; i < 4; i = i + 1)
+        sum = sum + data[i];
+end
+
+2)generate for loop : outside always ,should not be used inside always. it is used for instantiating hardware.
+Eg:
+genvar i;
+generate
+    for (i = 0; i < 4; i = i + 1) begin : gen_block
+        my_module u_inst (
+            .in(in[i]),
+            .out(out[i])
+        );
+    end
+endgenerate
+It replicates the hardware.
+Ripple carry adder(RCA):simple digital circuit that adds two binary numbers using a series of full adders, where the carry output of each stage is connected to the carry input of the next.
+The carry ripples from the LSB (least significant bit) to the MSB (most significant bit), hence the name.
+Worst-case delay = N × delay of 1 full adder
+Since each adder must wait for the carry from the previous one, RCA is slow for large N.
+It is simple to design, understand and uses small area.
+
 
 
 
