@@ -276,10 +276,46 @@ we detect flops whose output are not connected then remove those flops this simp
 
 
 
+# Day 4 
+GLS, blocking vs non-Blocking and systhesis- simulation mismatch 
+Day 4.1 : GLS,systhesis- simulation mismatch and blocking vs non-Blocking statements
+Introduction to Gate level simulation (GLS) and synthesis - simulation Mismatches 
+GLS stands for gate level simulation. We run the testbench with Netlist as Design Under Test.
+Netlist is logically same as RTL code so the same testbench will align with the design.
+GLS verifies the logical correstness of the design after the synthesis.It ensures the timing of the design is met so for this the GLS needs to run with delay annotation.
+
+
+GLS using iverilog setup: 
+design +gate level verilog models +testbench as input in iverilog which it will give us in value change dunp (vcd) format that we wll load in gtkwave to get waveforms.
+
+If gate level models are delayed then we can use GLS for timing validation.
+These models can be timing aware or functional. If timing aware we can check functionality and be timing aware.
+why should we validate functionality of netlist
+Synthesis - simulation Mismatch due to following reasons :
+1)Missing sensitivity list – Causes incorrect simulation behavior due to untriggered logic updates.
+always block is evaluated only when select is changing. If select is not changing always is not evaluated.
+so instead of "always@(sel)" we use "always@(*)" so now always is evaluated when any signal changes.
+
+2)Blocking vs non-blocking assignments – Leads to race conditions and unintended execution order in sequential logic.
+Inside always block 
+= : blocking ; it executes the statements in order it is written. So first statement is evaulated before the second statement .
+<=: Non blocking ; it execuates all the RHS when always block is entered and assigns to LHS.Parallel evaluation takes place.
+
+3)Non-standard Verilog coding – Uses constructs not supported or interpreted differently by synthesis tools.
+
+
+Day 4.2 : GLS and systhesis- simulation mismatch
+Ternary operator : "?"
+eg: <condition>?<True>:<False>
+we apply this in lab and verify the output from the waveforms that are seen.
+
+
+Day 4.3 : systhesis- simulation mismatch for blocking statements
+Synthesis-simulation mismatch due to blocking statements occurs when blocking (=) assignments in sequential (always @(posedge clk)) blocks cause race conditions or incorrect execution order in simulation, while synthesis tools interpret all assignments as happening simultaneously
 
 
 
-
+#Day 5 
 
 
 
