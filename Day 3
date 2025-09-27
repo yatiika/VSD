@@ -1,5 +1,63 @@
 Combinational and sequential optimizations
 Day 3.1 : Introduction to optimizations
+Digital logic as combinational and sequential logic 
+we study combinational logic optimization 
+to squeez the logic to get most optimized design for area and power saving 
+constant propagation for direct optimization 
+eg: Y =((AB)+C)' and A=0
+we get ((0)+c)' =(C)'  
+AND and OR gate in this operation give us output of NOT gate and we get an invertor 
+boolean logic optimization 
+Eg: assign y = a?(b?c:(c?a:0)):(!c)
+we reduced and get y = a'c'+ac = a xor c 
+Now we study sequential logic optimization 
+sequential constant propagation :Replaces flip-flops with constant outputs by their constant values to simplify logic.
+state optimization :Minimizes FSM by removing unreachable or merging equivalent states to reduce complexity.
+retiming :Moves flip-flops across logic gates to balance timing and improve performance.
+sequential logic cloning :Duplicates flip-flops and logic to reduce fanout and enhance timing on critical paths.
+
 Day 3.2 : Combinational Logic optimizations 
+opt_check is the modeule we will use with input a, b and output y.
+y = a?b:0
+y= ab AND gate
+opt_check_2 has y = a+b OR gate 
+we verify this via labs.
+We did NAND realization of OR gate.
+circuit :Inverter and inverter followed by NAND
+We create a 3 input AND gate 
+we learned to get optimized design.
 Day 3.3 : Sequential Logic optimizations 
+dff_const_1: we have a flip flop which gets Q on reset else 0.
+We draw the wave form to check later we will also stimulate this design.
+we replace flip-flops with constant outputs by their constant values to reduce logic.
+Simplify FSMs by merging equivalent states.
+Shifting flip-flops across logic to improve timing and reduce critical path delays.
+duplicate flops and logic to reduce fanout and balance timing.
+eliminate unused or duplicated registers to save area.
+disables clock to idle flops to reduce dynamic power consumption.
+adjusts the placement of registers to distribute logic delay evenly.
+Adds registers between stages to increase throughput and improve timing.
+chooses optimal state encoding for area/speed trade-offs.
+
 Day 3.4 : Sequential optimizations for unused outputs 
+In this step unused sequential outputs are detected and removed to optimize area and power in the design.
+
+During synthesis, some outputs of sequential blocks might never be used in the design and are called unused outputs or dead outputs.
+They increase power consumption and occupy space. It complicates design without benifit.
+
+we detect flops whose output are not connected then remove those flops this simplifies the design anf reduces size and power. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
