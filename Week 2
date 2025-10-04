@@ -1,0 +1,102 @@
+#   WEEK 2 
+SoC (System on Chip) is like putting an entire computer system — processor, memory, input/output, and more — all on one chip. It combines all function that a computer needs in a small chip .It is used on devices where space, power and efficiency id important.
+
+It has the following parts : CPU that acts as brain of SoC to handle all decisions and instructions given to it like calculation, data processing and running application.
+
+Memory are of two types RAM(random access memory) for temporarily storing data .
+ROM for keeping information saved even when device is off.
+
+Input ports output port connects devices and let SoC send receive data externally.
+Graphics creates visual on screen.it is used for watching video and gaming.
+
+Digital signal processor specialized in processing audio and video signals helps with task like noise reduction in phone calls and to enhance video quality.
+
+Power management it regulates power used in SoC makes chip operate efficiently.
+
+We also have WiFi , Bluetooth and security modules.
+Advantages of SoC:  
+Space saving
+Energy efficient 
+high performance 
+cost effective 
+reliable 
+Application : 
+Smartphone 
+wearables 
+IoT gadgets
+Car, TV 
+
+Challenges :
+Complex design, heat issues, less flexibility
+
+SoC technology allows us to create powerful efficient and compact devices by combining multiple component into one chip .
+Types:
+microcontroller based SoC : for everyday devices. uses low power and is efficient. In task that require minimal processing and where power saving is essential. 
+
+Microprocessor based SoC : It handles more demanding task that run operating systems. Uses smartphones and tablets for managing multiple task and support complex applications to to provide higher processing power for interactive and data intensive applications.
+
+Application specific SoC: Custom designed for a specific high performance task.They are optimized for speed and industrial and financial systems that require fast and precise processing. 
+
+SoC Design Flow
+Specification: decide what the chip should have — like CPU, memory, USB, Wi-Fi, etc.
+Architecture Design: create a block-level plan of the SoC.It shows connections of each part .
+RTL Design: code based description of how the chip show work is described in Verliog 
+Functional Verification:Simulate the design to make sure it behaves correctly.Identify the bugs and fix them.
+Synthesis: Convert RTL into real circuit that has logic gates.
+Physical Design: Connect all parts physically on chip.It includes floorplanning, placement, routing and creating layout.
+Timing Analysis & Optimization:Ensure the chip runs fast and correctly, without delays.
+Physical Verification:Check the final layout for errors, rules violations, and issues.
+Fabrication: Sending final design to foundary then create physical silicon chip with all circuits
+Testing:Once chip is made make sure it works in real world.
+Packaging:Put a chip to a protective case with pins 
+Deployment : Chip is ready to be used in daily life applications.
+
+VSDBabySoC is a compact and highly capable system on chip based on RISC-V architecture.it is designed to test three open source intellectual property cores together and to calibrate its analog components.
+It is a simiplified model for learning SoC components as it is designed as a minimal yet functional SoC for educational purpose.
+It is small and simple architecture , it has RISC-V CPU, PLL, DAC.
+
+
+It is based on Open source RISC-V and uses RVMYTH a minimal risc-v processor.It is free and open source architecture ideal for students.It encourages hands on learning.
+It covers end to end SoC workflow 
+It is designed for testing and experimentation.
+It focuses on real world use cases. It encourages debugging and verification skills which lays foundation in design verification.
+Visualization and output with immediate feedback.
+
+
+
+
+Functional modeling is the high-level representation of how a system or block is supposed to behave — before writing RTL code or designing its physical layout.
+It is important before RTL and Physical design
+It captures System Behavior Early and helps confirm the correct flow of data, control logic, and interactions between components.
+
+Enables Early Testing and Verification and helps detect logical or architectural flaws early — when they’re cheapest and easiest to fix.
+After confirmation of functional behaviour it acts as a blueprint for RTL coding.
+It saves time and cost.fixes bugs after fabrication is very costly and time consuming.
+It supports system level decisions assists partitioning the system.
+supports software development can be used to simulate the hardware.
+
+PLL-A Phase-Locked Loop (PLL) is an electronic circuit that generates a stable and synchronized clock signal.
+
+everything runs based on timing (clock signals).
+If parts of the chip are out of sync, they miscommunicate and cause errors.
+
+A PLL ensures:
+All parts of a chip run in sync.
+The clock is stable, clean, and possibly faster than the original signal.
+PLL has 3 main parts:
+Phase Detector: It compares the input clock with the PLL's output clock and detects phase difference (whether one signal is leading or lagging).
+Loop Filter:It takes the output from the phase detector then smooths it out to remove noise or sharp changes.
+It generates a control voltage.
+Voltage-Controlled Oscillator: uses the control voltage to adjust the frequency of the output clock.
+If the signal is too fast or slow, it speeds up or slows down the clock until it matches the input.
+
+PLL does:Clock multiplication: Make a faster clock from a slower one.
+Clock cleaning: Remove jitter or noise.
+Clock synchronization: Match different clocks across system blocks.
+
+
+DAC (Digital-to-Analog Converter) is a device that converts digital signals (0s and 1s) into analog signals (like voltage or current).
+It is used in Speakers ,TVs & Monitors , Microcontrollers ,VSDBabySoC.
+
+VSDBabySoC uses a 10-bit DAC, which means it can output 1024 levels of analog voltage.
+It converts digital values from the RVMYTH CPU into analog signals for external devices like TVs or phones.
