@@ -1,0 +1,10 @@
+Week 5 
+Short Summary:
+Steps i followed :
+I cloned and installed the OpenROAD Flow Scripts repository on my Linux system, set up all necessary dependencies, and 
+verified the environment by launching the `flow.tcl` interface. Then, I ran the design flow up to the floorplan and 
+placement stages, confirming successful generation of the core/die area and proper standard-cell placement. 
+
+Challenges i faced: 
+Initially, I faced dependency errors and missing library paths, which I resolved by reinstalling required packages and 
+updating the environment variables.
